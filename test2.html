@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="container" id="container1">
+    <!-- Content for container 1 -->
+    <h2>Container 1</h2>
+    <p>This is the content of container 1.</p>
+</div>
+
+<div class="container" id="container2">
+    <!-- Content for container 2 -->
+    <h2>Container 2</h2>
+    <p>This is the content of container 2.</p>
+</div>
+</body>
+</html>
+<style>
+  .container {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin: 10px;
+    display: none; /* Initially hide both containers */
+}
+
+@media (min-width: 768px) {
+    .container {
+        display: block; /* Display both containers on larger screens */
+    }
+}
+
+</style>
+<script>
+  // Function to swap containers based on screen width
+function swapContainers() {
+    var container1 = document.getElementById('container1');
+    var container2 = document.getElementById('container2');
+    
+    if (window.innerWidth < 768) {
+        container1.style.display = 'block';
+        container2.style.display = 'none';
+    } else {
+        container1.style.display = 'none';
+        container2.style.display = 'block';
+    }
+}
+
+// Initial call to swap containers based on current screen width
+swapContainers();
+
+// Event listener for window resize
+window.addEventListener('resize', function() {
+    swapContainers();
+});
+
+</script>
